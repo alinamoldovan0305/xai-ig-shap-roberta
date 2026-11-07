@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.venv/
+data/
+checkpoints/
+*.pt
+*.bin
+*.safetensors
