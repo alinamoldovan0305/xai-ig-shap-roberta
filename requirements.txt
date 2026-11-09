@@ -1,6 +1,7 @@
 torch
 transformers
 datasets
+accelerate
 captum
 shap
 scikit-learn
