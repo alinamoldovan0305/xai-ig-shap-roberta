@@ -1,0 +1,103 @@
+{
+  "sst2": {
+    "train": {
+      "n": 67349,
+      "labels": {
+        "negative": 29780,
+        "positive": 37569
+      },
+      "pct_positive": 55.8,
+      "empty": 0,
+      "duplicates": 371,
+      "mean_words": 9.4,
+      "median_words": 7,
+      "min_words": 1,
+      "max_words": 52
+    },
+    "validation": {
+      "n": 872,
+      "labels": {
+        "negative": 428,
+        "positive": 444
+      },
+      "pct_positive": 50.9,
+      "empty": 0,
+      "duplicates": 0,
+      "mean_words": 19.5,
+      "median_words": 19,
+      "min_words": 2,
+      "max_words": 47,
+      "mean_tokens": 26.0,
+      "max_tokens": 63,
+      "pct_over_max_length": 0.0
+    },
+    "validation_in_train": 0,
+    "sample": {
+      "n": 150,
+      "pct_positive": 54.0,
+      "mean_words": 20.9,
+      "median_words": 21,
+      "min_words": 5,
+      "max_words": 42,
+      "ks_p_length_vs_validation": 0.305
+    }
+  },
+  "emobank": {
+    "n": 10061,
+    "splits": {
+      "train": 8062,
+      "test": 1000,
+      "dev": 999
+    },
+    "out_of_range_1_5": 0,
+    "empty": 0,
+    "duplicates": 156,
+    "mean_words": 15.0,
+    "median_words": 12,
+    "min_words": 1,
+    "max_words": 116,
+    "per_split": {
+      "dev": {
+        "n": 999,
+        "V_mean": 2.96,
+        "V_std": 0.34,
+        "A_mean": 3.03,
+        "A_std": 0.25
+      },
+      "test": {
+        "n": 1000,
+        "V_mean": 2.98,
+        "V_std": 0.35,
+        "A_mean": 3.03,
+        "A_std": 0.25
+      },
+      "train": {
+        "n": 8062,
+        "V_mean": 2.98,
+        "V_std": 0.35,
+        "A_mean": 3.04,
+        "A_std": 0.26
+      }
+    },
+    "pct_near_neutral": {
+      "V": 65.3,
+      "A": 73.6
+    },
+    "pearson_V_A": {
+      "r": 0.039,
+      "p": 0.000111
+    },
+    "sample": {
+      "n": 400,
+      "V_mean": 2.98,
+      "V_std": 0.35,
+      "A_mean": 3.03,
+      "A_std": 0.26,
+      "ks_p_V_vs_test": 0.994,
+      "ks_p_A_vs_test": 0.916
+    },
+    "mean_tokens": 21.8,
+    "max_tokens": 152,
+    "pct_over_max_length": 0.04
+  }
+}
