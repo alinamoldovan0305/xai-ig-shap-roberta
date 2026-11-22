@@ -1,5 +1,12 @@
+"""Fine-tune RoBERTa-base on SST-2.
+
+Colab:      python -m src.train_sst2 --output_dir /content/drive/MyDrive/xai/roberta-sst2
+Quick test: python -m src.train_sst2 --max_train_samples 2000 --epochs 1 --output_dir /content/test-run
+"""
+
 import argparse
 import json
+import math
 from datetime import datetime
 from pathlib import Path
 
@@ -67,6 +74,11 @@ def main():
         label2id={v: k for k, v in SST2_LABELS.items()},
     )
 
+    # warm-up: the learning rate grows slowly during the first 6% of the steps
+    # (computed here because newer transformers versions removed warmup_ratio)
+    steps_per_epoch = math.ceil(len(train_tok) / args.batch_size)
+    warmup_steps = int(0.06 * steps_per_epoch * args.epochs)
+
     # fixed epochs, no model selection on validation (it is used later for explanations)
     training_args = TrainingArguments(
         output_dir="checkpoints/sst2",
@@ -75,7 +87,7 @@ def main():
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=64,
         weight_decay=0.01,
-        warmup_ratio=0.06,
+        warmup_steps=warmup_steps,
         eval_strategy="epoch",
         save_strategy="no",
         logging_steps=100,
